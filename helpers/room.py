@@ -19,6 +19,11 @@ class Room():
     def link_room(self, room_to_link, direction):
         self.linked_rooms[direction] = room_to_link
 
+    def get_details(self):
+        for direction in self.linked_rooms:
+            room = self.linked_rooms[direction]
+            print(f"The {room} is {direction}.")
+
     def describe(self):
         print(self.get_description())
 
