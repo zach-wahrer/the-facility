@@ -5,7 +5,8 @@ import unittest
 
 room_blueprint = {'name': 'Kitchen',
                   'desc': 'A dank and dirty room buzzing with flies.',
-                  'door': {'direction': 'South', 'room': 'Dining Hall'}
+                  'doors': [{'direction': 'South', 'room': 'Dining Hall'},
+                            {'direction': 'Down', 'room': 'Dungeon'}]
                   }
 
 
@@ -27,6 +28,9 @@ class TestRoom(unittest.TestCase):
         create_room(room_blueprint, location)
         direction = 'South'
         room = 'Dining Hall'
+        self.assertEqual(location['Kitchen'].linked_rooms[direction], room)
+        direction = 'Down'
+        room = 'Dungeon'
         self.assertEqual(location['Kitchen'].linked_rooms[direction], room)
 
 

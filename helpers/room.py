@@ -26,5 +26,13 @@ class Room():
 def create_room(room: dict, locations: dict):
     locations[room['name']] = Room(room['name'])
     locations[room['name']].set_description(room['desc'])
-    locations[room['name']].link_room(room['door']['room'],
-                                      room['door']['direction'])
+    for door in room['doors']:
+        create_door_to_other_room(locations[room['name']],
+                                  door['room'],
+                                  door['direction'])
+
+
+def create_door_to_other_room(from_room: Room,
+                              to_room: str,
+                              in_which_direction: str):
+    from_room.link_room(to_room, in_which_direction)
