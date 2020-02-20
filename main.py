@@ -1,5 +1,5 @@
-from helpers.room import Room, create_room
-from helpers.player import Player
+from models.room import Room, create_room
+from models.player import Player
 
 
 def main():
