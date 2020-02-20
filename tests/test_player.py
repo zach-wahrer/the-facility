@@ -1,7 +1,7 @@
 """Testing for the Player class."""
 
 from models.player import Player
-from models.room import Room, create_room
+from models.game_map import GameMap
 import unittest
 
 room_blueprints = [
@@ -23,16 +23,18 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(Player("Buzz", None).get_name(), "Buzz")
 
     def test_start_loc(self):
-        locations = {}
-        for room in room_blueprints:
-            create_room(room, locations)
-        explorer = Player("Buzz", locations['Dungeon'])
-        self.assertEqual(explorer._location, locations['Dungeon'])
+        test_map = GameMap(room_blueprints)
+        explorer = Player("Buzz", test_map.location['Dungeon'])
+        self.assertEqual(explorer._location, test_map.location['Dungeon'])
 
-    def test_move(self):
-        locations = {}
-        for room in room_blueprints:
-            create_room(room, locations)
-        explorer = Player("Buzz", locations['Kitchen'])
-        explorer.move("down", locations)
-        self.assertEqual(explorer._location, locations['Dungeon'])
+    def test_move_valid(self):
+        test_map = GameMap(room_blueprints)
+        explorer = Player("Buzz", test_map.location['Kitchen'])
+        explorer.move("down", test_map)
+        self.assertEqual(explorer._location, test_map.location['Dungeon'])
+
+    def test_move_invalid(self):
+        test_map = GameMap(room_blueprints)
+        explorer = Player("Buzz", test_map.location['Kitchen'])
+        explorer.move("north", test_map)
+        self.assertEqual(explorer._location, test_map.location['Kitchen'])
