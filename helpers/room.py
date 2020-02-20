@@ -21,3 +21,10 @@ class Room():
 
     def describe(self):
         print(self.get_description())
+
+
+def create_room(room, locations):
+    locations[room['name']] = Room(room['name'])
+    locations[room['name']].set_description(room['desc'])
+    locations[room['name']].link_room(room['door']['room'],
+                                      room['door']['direction'])

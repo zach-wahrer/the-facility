@@ -1,4 +1,4 @@
-from room import Room
+from helpers.room import Room, create_room
 
 
 def main():
@@ -18,13 +18,6 @@ def main():
 
     for room in room_blueprints:
         create_room(room, locations)
-
-
-def create_room(room, locations):
-    locations[room['name']] = Room(room['name'])
-    locations[room['name']].set_description(room['desc'])
-    locations[room['name']].link_room(room['door']['room'],
-                                      room['door']['direction'])
 
 
 if __name__ == "__main__":
