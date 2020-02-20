@@ -1,4 +1,5 @@
 from helpers.room import Room, create_room
+from helpers.player import Player
 
 
 def main():
@@ -23,7 +24,18 @@ def main():
     for room in room_blueprints:
         create_room(room, locations)
 
-    locations["Dining Hall"].get_details()
+    player_name = input('Please enter your name: ')
+    current_room = locations['Ballroom']
+    explorer = Player(player_name, current_room)
+
+    print(f"\nHello {explorer.get_name()}.")
+
+    while True:
+        print("\n")
+        current_room.get_details()
+        print("What would you like to do?")
+        command = input("> ").lower()
+        current_room = explorer.move(command, locations)
 
 
 if __name__ == "__main__":
