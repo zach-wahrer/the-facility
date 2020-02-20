@@ -1,12 +1,12 @@
 """Testing for the Room class."""
 
-from helpers.room import Room, create_room
+from models.room import Room, create_room
 import unittest
 
 room_blueprint = {'name': 'Kitchen',
                   'desc': 'A dank and dirty room buzzing with flies.',
-                  'doors': [{'direction': 'South', 'room': 'Dining Hall'},
-                            {'direction': 'Down', 'room': 'Dungeon'}]
+                  'doors': [{'direction': 'south', 'room': 'Dining Hall'},
+                            {'direction': 'down', 'room': 'Dungeon'}]
                   }
 
 
@@ -26,10 +26,10 @@ class TestRoom(unittest.TestCase):
     def test_door_linking(self):
         location = {}
         create_room(room_blueprint, location)
-        direction = 'South'
+        direction = 'south'
         room = 'Dining Hall'
         self.assertEqual(location['Kitchen'].linked_rooms[direction], room)
-        direction = 'Down'
+        direction = 'down'
         room = 'Dungeon'
         self.assertEqual(location['Kitchen'].linked_rooms[direction], room)
 
