@@ -20,6 +20,8 @@ class Room():
         self.linked_rooms[direction] = room_to_link
 
     def get_details(self):
+        print(f"You are in the {self._name}.")
+        print(f"You see: {self._description}")
         for direction in self.linked_rooms:
             room = self.linked_rooms[direction]
             print(f"The {room} is {direction}.")
