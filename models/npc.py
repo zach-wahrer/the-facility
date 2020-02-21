@@ -31,3 +31,8 @@ class NPC():
 class Enemy(NPC):
     def __init__(self, name, description):
         super().__init__(name, description)
+
+
+class Friend(NPC):
+    def __init__(self, name, description):
+        super().__init__(name, description)

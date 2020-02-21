@@ -3,6 +3,6 @@ NPC_CONFIG = [
      'type': 'enemy',
      'description': 'His pointy teeth make you feel uneasy.'},
     {'name': 'Wolfman',
-     'type': 'npc',
+     'type': 'friend',
      'description': 'A fire burns in his yellow eyes.'}
 ]

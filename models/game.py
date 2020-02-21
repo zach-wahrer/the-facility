@@ -1,7 +1,7 @@
 from config.room_blueprints import ROOM_BLUEPRINTS, START_LOCATION
 from config.npc_config import NPC_CONFIG
 from models.game_map import GameMap
-from models.npc import NPC, Enemy
+from models.npc import Enemy, Friend
 from models.npc_controller import NPCController
 from models.player import Player
 
@@ -32,8 +32,8 @@ class Game():
                 self._npc_controller.add_npc(npc['name'], Enemy(npc['name'],
                                                                 npc['description']))
             else:
-                self._npc_controller.add_npc(npc['name'], NPC(npc['name'],
-                                                              npc['description']))
+                self._npc_controller.add_npc(npc['name'], Friend(npc['name'],
+                                                                 npc['description']))
             self.randomize_character_location(self._npc_controller.get_npc(npc['name']))
 
     def randomize_character_location(self, character):
