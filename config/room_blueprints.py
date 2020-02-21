@@ -13,3 +13,5 @@ ROOM_BLUEPRINTS = [
                {'direction': 'north', 'room': 'Kitchen'}]
      }
 ]
+
+START_LOCATION = 'Ballroom'
