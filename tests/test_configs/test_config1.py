@@ -9,3 +9,5 @@ ROOM_BLUEPRINTS = [
      'doors': [{'direction': 'up', 'room': 'Kitchen'}]
      }
 ]
+
+START_LOCATION = 'Dungeon'
