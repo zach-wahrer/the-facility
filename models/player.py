@@ -9,6 +9,9 @@ class Player():
     def set_name(self, name):
         self._name = name
 
+    def set_location(self, location):
+        self._location = location
+
     def get_location(self):
         return self._location
 
