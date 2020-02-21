@@ -42,7 +42,22 @@ class Game():
     def ask_and_execute_command(self):
         print("What would you like to do?")
         command = input("> ").lower()
-        self._player.move(command, self._gm)
+        self.run_command(command)
+
+    def run_command(self, command):
+        move_directions = ['north', 'south', 'east', 'west', 'up', 'down']
+        quit_commands = ['exit', 'quit']
+
+        if command in move_directions:
+            self._player.move(command, self._gm)
+
+        elif command in quit_commands:
+            confirm = input("\nAre you sure you want to quit? ").lower()
+            if confirm == 'y' or confirm == 'yes':
+                print(f"Thanks for playing, {self._player.get_name()}!")
+                quit()
+        else:
+            print("\nCommand not recognized. Please try again.")
 
     def ask_for_name(self):
         return input('Please enter your name: ')
