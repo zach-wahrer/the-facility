@@ -24,4 +24,5 @@ class GameMap():
             from_room.link_room(door['room'], door['direction'])
 
     def get_random_location(self):
-        return random.choice(list(self.location.keys()))
+        random_location = random.choice(list(self.location.keys()))
+        return self.location[random_location]
