@@ -11,6 +11,7 @@ class NPC():
 
     def set_location(self, location):
         self._location = location
+        location.set_occupant(self)
 
     def describe(self):
         print(f"{self._name} stands before you.")
