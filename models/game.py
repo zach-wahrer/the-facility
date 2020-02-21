@@ -19,13 +19,13 @@ class Game():
         while True:
             print("\n")
             self.describe_room()
-            self.ask_for_command()
+            self.ask_and_execute_command()
 
     def setup_player(self):
         self._player = Player(self.ask_for_name(),
                               self._gm.location[self._player_start_location])
 
-    def ask_for_command(self):
+    def ask_and_execute_command(self):
         print("What would you like to do?")
         command = input("> ").lower()
         self._player.move(command, self._gm)
