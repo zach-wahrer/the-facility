@@ -3,10 +3,14 @@ class NPC():
     def __init__(self, name, description):
         self._name = name
         self._description = description
+        self._location = None
         self._conversation = None
 
     def set_conversation(self, words):
         self._conversation = words
+
+    def set_location(self, location):
+        self._location = location
 
     def describe(self):
         print(f"{self._name} stands before you.")
