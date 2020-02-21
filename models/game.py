@@ -1,5 +1,8 @@
 from config.room_blueprints import ROOM_BLUEPRINTS, START_LOCATION
+from config.npc_config import NPC_CONFIG
 from models.game_map import GameMap
+from models.npc import NPC
+from models.npc_controller import NPCController
 from models.player import Player
 
 
@@ -8,8 +11,10 @@ class Game():
         self._gm = GameMap(rooms)
         self._player = None
         self._player_start_location = start
+        self._npc_controller = NPCController()
 
     def start(self):
+        self.generate_NPCs()
         self.setup_player()
         self.greet_player()
         self.player_exploring()
@@ -20,6 +25,15 @@ class Game():
             print("\n")
             self.describe_room()
             self.ask_and_execute_command()
+
+    def generate_NPCs(self):
+        for npc in NPC_CONFIG:
+            self._npc_controller.add_npc(npc['name'], NPC(npc['name'],
+                                                          npc['description']))
+            self.randomize_character_location(self._npc_controller.get_npc(npc['name']))
+
+    def randomize_character_location(self, character):
+        character.set_location(self._gm.get_random_location())
 
     def setup_player(self):
         self._player = Player(self.ask_for_name(),
