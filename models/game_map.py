@@ -1,4 +1,5 @@
 from models.room import Room
+import random
 
 
 class GameMap():
@@ -21,3 +22,6 @@ class GameMap():
     def create_doors(self, from_room, doors):
         for door in doors:
             from_room.link_room(door['room'], door['direction'])
+
+    def get_random_location(self):
+        return random.choice(list(self.location.keys()))
