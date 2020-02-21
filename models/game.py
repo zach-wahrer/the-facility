@@ -4,10 +4,10 @@ from models.player import Player
 
 
 class Game():
-    def __init__(self):
-        self._gm = GameMap(ROOM_BLUEPRINTS)
+    def __init__(self, rooms=ROOM_BLUEPRINTS, start=START_LOCATION):
+        self._gm = GameMap(rooms)
         self._player = None
-        self._player_start_location = START_LOCATION
+        self._player_start_location = start
 
     def start(self):
         self.setup_player()
