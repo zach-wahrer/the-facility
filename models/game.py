@@ -52,12 +52,15 @@ class Game():
             self._player.move(command, self._gm)
 
         elif command in quit_commands:
-            confirm = input("\nAre you sure you want to quit? ").lower()
-            if confirm == 'y' or confirm == 'yes':
-                print(f"Thanks for playing, {self._player.get_name()}!")
-                quit()
+            self.print_quit_confirmation()
         else:
             print("\nCommand not recognized. Please try again.")
+
+    def print_quit_confirmation(self):
+        confirm = input("\nAre you sure you want to quit? ").lower()
+        if confirm == 'y' or confirm == 'yes':
+            print(f"Thanks for playing, {self._player.get_name()}!")
+            quit()
 
     def ask_for_name(self):
         return input('Please enter your name: ')
