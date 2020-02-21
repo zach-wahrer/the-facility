@@ -12,17 +12,29 @@ class Game():
     def start(self):
         self.setup_player()
         self.greet_player()
-        self.describe_room()
+        self.player_exploring()
+        exit()
+
+    def player_exploring(self):
+        while True:
+            print("\n")
+            self.describe_room()
+            self.ask_for_command()
 
     def setup_player(self):
         self._player = Player(self.ask_for_name(),
                               self._gm.location[self._player_start_location])
 
+    def ask_for_command(self):
+        print("What would you like to do?")
+        command = input("> ").lower()
+        self._player.move(command, self._gm)
+
     def ask_for_name(self):
         return input('Please enter your name: ')
 
     def greet_player(self):
-        print(f"\nHello {self._player.get_name()}.\n")
+        print(f"\nHello {self._player.get_name()}.")
 
     def describe_room(self):
         location = self._player.get_location()
