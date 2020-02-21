@@ -26,3 +26,8 @@ class NPC():
     def fight(self, combat_item):
         print(f"You raise your {combat_item}, but {self._name} backs away.")
         return True
+
+
+class Enemy(NPC):
+    def __init__(self, name, description):
+        super().__init__(name, description)
