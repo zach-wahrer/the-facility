@@ -1,17 +1,17 @@
 ROOM_BLUEPRINTS = [
-    {'name': 'Kitchen',
-     'desc': 'A dank and dirty room buzzing with flies.',
-     'doors': [{'direction': 'south', 'room': 'Dining Hall'}]
+    {'name': 'Airlock',
+     'desc': 'A cramped space the allows you to access the rest of the ship.',
+     'doors': [{'direction': 'north', 'room': 'Engine Room'}]
      },
-    {'name': 'Ballroom',
-     'desc': 'An elegant space that has obviously seen better days.',
-     'doors': [{'direction': 'east', 'room': 'Dining Hall'}]
+    {'name': 'Engine Room',
+     'desc': 'A large space, dark and dingy. It is full of complicated machinery and equipment.',
+     'doors': [{'direction': 'south', 'room': 'Airlock'},
+               {'direction': 'north', 'room': 'Bridge'}]
      },
-    {'name': 'Dining Hall',
-     'desc': 'Broken and mismatched chairs sit around a dusty table.',
-     'doors': [{'direction': 'west', 'room': 'Ballroom'},
-               {'direction': 'north', 'room': 'Kitchen'}]
+    {'name': 'Bridge',
+     'desc': 'A few run-down command chairs sit before black screens.',
+     'doors': [{'direction': 'south', 'room': 'Engine Room'}]
      }
 ]
 
-START_LOCATION = 'Ballroom'
+START_LOCATION = 'Airlock'

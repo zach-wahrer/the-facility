@@ -1,8 +1,8 @@
 NPC_CONFIG = [
-    {'name': 'Dracula',
+    {'name': 'Corpse',
      'type': 'enemy',
-     'description': 'His pointy teeth make you feel uneasy.'},
-    {'name': 'Wolfman',
+     'description': 'His gruesome wounds make you feel uneasy.'},
+    {'name': 'Fiona',
      'type': 'friend',
-     'description': 'A fire burns in his yellow eyes.'}
+     'description': 'A small girl. She looks afraid.'}
 ]
