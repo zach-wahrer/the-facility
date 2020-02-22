@@ -1,6 +1,6 @@
-# adventure-game
+# The Harvester
 
-An old-school text-based adventure game, written in Python. Currently in development.
+The Harvester is an old-school text-based adventure game, written in Python. Currently in development.
 
 **Installing/Running:**
 
