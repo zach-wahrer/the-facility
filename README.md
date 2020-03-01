@@ -1,6 +1,8 @@
-# The Harvester
+# The Facility
 
-The Harvester is an old-school text-based adventure game, written in Python. Currently in development.
+The Facility is an old-school, text-based adventure game, written in Python. Currently in development.
+
+The story line is a spin off of a book series called the Dawn Saga, also written by me.
 
 **Installing/Running:**
 
