@@ -4,6 +4,7 @@ from models.game_map import GameMap
 from models.npc import Enemy, Friend
 from models.npc_controller import NPCController
 from models.player import Player
+from models.story import Story
 
 
 class Game():
